@@ -1,0 +1,17 @@
+.Back {
+    position: relative;
+    padding: 30px !important;
+    background-color: var(rgba(75, 29, 29, 0.96));
+    border-radius: 100%;
+    width: fit-content;
+}
+
+.Back > .gb-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    margin: 0 !important;
+    background-color: transparent !important;
+}
