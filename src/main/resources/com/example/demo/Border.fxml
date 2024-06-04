@@ -6,16 +6,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="345.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Border">
+<AnchorPane prefHeight="400.0" prefWidth="603.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controller.BorderContoroller">
    <children>
       <ImageView fitHeight="415.0" fitWidth="603.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/clhrwj1tp000fl108iijcos17_1.jpg" />
          </image>
       </ImageView>
-      <TableView layoutX="60.0" layoutY="47.0" prefHeight="290.0" prefWidth="479.0">
+      <TableView fx:id="table" layoutX="60.0" layoutY="47.0" prefHeight="290.0" prefWidth="479.0" style="-fx-background-color: #36454F;">
         <columns>
             <TableColumn prefWidth="75.0" text="Rank" />
           <TableColumn prefWidth="75.0" text="Name" />
@@ -27,14 +27,9 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button id="Back" layoutX="457.0" layoutY="344.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="38.0" stylesheets="@CSS/borderPage.css">
-         <graphic>
-            <ImageView fitHeight="46.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@image/transparent-essential-icon-restart-icon-back-icon-5d8e6a2edb9020.2285427115696143828993.jpg" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+      <Button id="Back" fx:id="back" layoutX="457.0" layoutY="344.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="78.0" style="-fx-background-color: #808080; -fx-background-radius: 50;" styleClass="Back" text="Back" textFill="#0dff00">
+         <font>
+            <Font name="Cambria" size="19.0" />
+         </font></Button>
    </children>
 </AnchorPane>
