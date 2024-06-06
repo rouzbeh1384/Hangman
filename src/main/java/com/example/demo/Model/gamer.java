@@ -15,7 +15,12 @@ public class gamer {
     public gamer(){
 
     }
-
+    public gamer(int age ,String name ,String passWord,Boolean gernd){
+        this.gender=gernd;
+        this.name=name;
+        this.passWord=passWord;
+        this.Age=age;
+    }
 
     public int getAge() {
         return Age;
@@ -56,4 +61,8 @@ public class gamer {
     public void setEmial(String emial) {
         this.emial = emial;
     }
+
+
+    public String getPassWord(){return this.passWord;}
+
 }
