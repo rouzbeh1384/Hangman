@@ -9,7 +9,8 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
-
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controller.PlayGame">
    <children>
@@ -18,9 +19,9 @@
             <Image url="@image/Marquina-closeup.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="260.0" layoutX="385.0" layoutY="61.0" stroke="#0026ff" strokeType="INSIDE" strokeWidth="3.0" width="9.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="130.0" layoutX="454.0" layoutY="-7.0" rotate="90.0" stroke="#0026ff" strokeType="INSIDE" strokeWidth="3.0" style="-fx-blend-mode: true;" width="9.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="505.0" layoutY="63.0" stroke="#0026ff" strokeType="INSIDE" strokeWidth="3.0" width="9.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="260.0" layoutX="385.0" layoutY="61.0" stroke="#964b00" strokeType="INSIDE" strokeWidth="3.0" width="9.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="130.0" layoutX="454.0" layoutY="-7.0" rotate="90.0" stroke="#964b00" strokeType="INSIDE" strokeWidth="3.0" style="-fx-blend-mode: true;" width="9.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="505.0" layoutY="63.0" stroke="#964b00" strokeType="INSIDE" strokeWidth="3.0" width="9.0" />
       <Group fx:id="one" layoutX="484.0" layoutY="113.0" visible="false">
          <children>
             <Circle fill="WHITE" layoutX="24.0" layoutY="24.0" radius="25.0" stroke="#ea0000" strokeType="INSIDE" strokeWidth="4.0" />
@@ -34,9 +35,30 @@
       <Rectangle fx:id="five" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="493.0" layoutY="238.0" rotate="33.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" visible="false" width="5.0" />
       <Rectangle fx:id="six" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="519.0" layoutY="238.0" rotate="-33.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" visible="false" width="5.0" />
       <Rectangle fx:id="four" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="520.0" layoutY="172.0" rotate="-34.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" visible="false" width="5.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="408.0" layoutY="56.0" rotate="42.0" stroke="#0026ff" strokeType="INSIDE" strokeWidth="3.0" width="9.0" />
-      <HBox fx:id="Answer" layoutX="97.0" layoutY="278.0" prefHeight="22.0" prefWidth="162.0" />
-      <Button fx:id="check" layoutX="148.0" layoutY="326.0" mnemonicParsing="false" text="Check" />
-      <Button fx:id="start" layoutX="320.0" layoutY="326.0" mnemonicParsing="false" text="Strart" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="408.0" layoutY="56.0" rotate="42.0" stroke="#964b00" strokeType="INSIDE" strokeWidth="3.0" width="9.0" />
+      <HBox fx:id="Answer" layoutX="29.0" layoutY="274.0" prefHeight="26.0" prefWidth="334.0" />
+      <Button fx:id="check" layoutX="59.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: circle;" text="Check" textFill="#00fcf8">
+         <font>
+            <Font name="Cooper Black" size="17.0" />
+         </font></Button>
+      <Button fx:id="start" layoutX="209.0" layoutY="318.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" style="-fx-background-radius: 100; -fx-background-color: circle;" text="New Word" textFill="#fff6f6">
+         <font>
+            <Font name="Cooper Black" size="17.0" />
+         </font></Button>
+      <Button layoutX="56.0" layoutY="71.0" mnemonicParsing="false" style="-fx-background-color: s;" text="Hint" textFill="#f2ff00">
+         <font>
+            <Font name="Cooper Black" size="18.0" />
+         </font>
+      </Button>
+      <Text fill="#daff00" layoutX="196.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gread : ">
+         <font>
+            <Font name="Cooper Black" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="scor" layoutX="275.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
