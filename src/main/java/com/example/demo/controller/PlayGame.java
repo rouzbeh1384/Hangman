@@ -4,13 +4,18 @@ import com.example.demo.Database.Database;
 import com.example.demo.Model.gamer;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
@@ -19,6 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -63,30 +69,36 @@ public class PlayGame implements Initializable {
     private HBox Answer;
 
     public String word;
-    public int fall = 0;
-    public boolean test = true;
+    public double fall = 0;
     @FXML
     private Label score;
 
-    public int  Grade=0;
+    @FXML
+    private Label answerHint;
 
+    public int  Grade=gamer.getPoint();;
+    @FXML
+    private Button hint;
 
     public ArrayList<TextField> Word = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+        score.setText("");
 
         back.setOnAction(e->{
             BackHome();
+            back.getScene().getWindow().hide();
         });
 
         Answer.setSpacing(10);
 
         start.setOnAction(e -> {
             ClearAll();
-            word = getWord();
+           do {
+               word=getWord();
+           }while (word.length()>6);
 
             for (int i = 0; i < word.length(); i++) {
                 fall = 0;
@@ -98,6 +110,9 @@ public class PlayGame implements Initializable {
                 Answer.getChildren().add(a);
             }
         });
+
+
+
 
         check.setOnAction(e -> {
             int f=0;
@@ -119,20 +134,41 @@ public class PlayGame implements Initializable {
                     }
                 }
                 if (f==Word.size()){
-                    gamer.setPoint(f);
-                    Grade=Grade+f;
+
+
+                    Grade=Grade+f+gamer.getPoint();
+                    gamer.setPoint(Grade);
+                    System.out.println(gamer.getName());
                     Database.updata(Grade,gamer);
                     score.setText(String.valueOf(Grade));
+
                     f=0;
                 }
             }
         });
+        hint.setOnAction(e->{
+            Random rand = new Random();
+            int j=rand.nextInt(word.length());
+            answerHint.setText("Char AT " +j+" is "+word.charAt(j));
+            Word.get(j).setText(String.valueOf(word.charAt(j)));
+            Word.get(j).setDisable(true);
+            fall+=0.5;
+            Fall();
+        });
     }
 
     private void BackHome() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/loginPage.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
 
-
-        //TODO Loud the first pa
     }
 
     private boolean Befor(String string) {
@@ -158,9 +194,16 @@ public class PlayGame implements Initializable {
 
     private void Fall() {
         visible();
-        switch (fall) {
-            case 6:
+        switch ((int)fall) {
+            case 6: {
                 six.setVisible(true);
+                try {
+                    gameOver();
+                    back.getScene().getWindow().hide();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
             case 5:
                 five.setVisible(true);
             case 4:
@@ -174,6 +217,15 @@ public class PlayGame implements Initializable {
                 break;
 
         }
+    }
+
+    private void gameOver() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/Gameover.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     private void visible() {
@@ -201,13 +253,10 @@ public class PlayGame implements Initializable {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(responseStream);
 
+                System.out.println(root.path("word").asText());
+                return root.path("word").asText();
 
-            if(root.path("word").asText().length()>7){
-                getWord();
-            }
 
-           System.out.println(root.path("word").asText());
-            return root.path("word").asText();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -46,8 +46,8 @@ public class EnterPageContoroller implements Initializable {
     private void StartGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/PlayGame.fxml"));
         Parent root = loader.load();
-        PlayGame playGame=loader.getController();
-        playGame.gamer=x;
+        PlayGame playGame = loader.getController();
+        playGame.gamer = x;
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -58,9 +58,10 @@ public class EnterPageContoroller implements Initializable {
         boolean check=false;
         ArrayList<gamer>gamers=Database.getinformation();
         for (gamer gamer:gamers){
-            if (gamer.getName().equals(username.getText()) &gamer.getPassWord().equals(password.getText()))
+            if (gamer.getName().equals(username.getText()) && gamer.getPassWord().equals(password.getText()))
             {
             x=gamer;
+          System.out.println(x.getName()+"---"+x.getPoint());
                check=true;
                break;
             }

@@ -5,8 +5,8 @@ import javafx.collections.ObservableList;
 public class gamer  {
     private String gender;
 
-    private int Id =-1;
 
+    private int  age;
 
     private String name;
     private String email;
@@ -29,6 +29,14 @@ public class gamer  {
         this.email=email;
 
     }
+    public gamer(String name ,String passWord,String gernd,String email,int point){
+        this.gender=gernd;
+        this.name=name;
+        this.passWord=passWord;
+        this.email=email;
+        this.point=point;
+
+    }
 
 
 
@@ -42,13 +50,7 @@ public class gamer  {
         this.gender = gender;
     }
 
-    public int getId() {
-        return Id;
-    }
 
-    public void setId(int id) {
-        Id = id;
-    }
 
     public String getName() {
         return name;

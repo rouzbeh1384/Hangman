@@ -46,7 +46,7 @@
          <font>
             <Font name="Cooper Black" size="17.0" />
          </font></Button>
-      <Button layoutX="143.0" layoutY="318.0" mnemonicParsing="false" style="-fx-background-color: s;" text="Hint" textFill="#f2ff00">
+      <Button fx:id="hint" layoutX="143.0" layoutY="318.0" mnemonicParsing="false" style="-fx-background-color: s;" text="Hint" textFill="#f2ff00">
          <font>
             <Font name="Cooper Black" size="18.0" />
          </font>
@@ -56,11 +56,24 @@
             <Font name="Cooper Black" size="18.0" />
          </font>
       </Text>
-      <Label fx:id="score" layoutX="97.0" layoutY="16.0" text="Label" />
+      <Label fx:id="score" layoutX="97.0" layoutY="16.0" text="Label" textFill="#f2ff00">
+         <font>
+            <Font name="Cooper Black" size="17.0" />
+         </font></Label>
       <Button fx:id="back" layoutX="504.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: c;" text="Back" textFill="#ffe5e5">
          <font>
             <Font name="Cooper Black" size="23.0" />
          </font>
       </Button>
+      <Text fill="#daff00" layoutX="34.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hint : ">
+         <font>
+            <Font name="Cooper Black" size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="answerHint" layoutX="97.0" layoutY="102.0" text="Label" textFill="#f2ff00">
+         <font>
+            <Font name="Cooper Black" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
