@@ -10,6 +10,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -41,6 +42,10 @@ public class PlayGame implements Initializable {
     gamer gamer =new gamer();
 
     ArrayList<String> mis = new ArrayList<>();
+
+    @FXML
+    private ComboBox<String> level;
+
 
     @FXML
     private Button check;
@@ -85,6 +90,8 @@ public class PlayGame implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        level.getItems().addAll("hard","Normal","easy");
+
         score.setText("");
 
         back.setOnAction(e->{
@@ -95,10 +102,25 @@ public class PlayGame implements Initializable {
         Answer.setSpacing(10);
 
         start.setOnAction(e -> {
+            int number ;
+
+            switch (level.getValue()){
+                case "easy":
+                    number=4;
+                    break;
+                case "hard":
+                    number=7;
+                    break;
+                case "Normal":
+                    number=5;
+                break;
+                default:
+                    number=6;
+            }
             ClearAll();
            do {
                word=getWord();
-           }while (word.length()>6);
+           }while (word.length()>number);
 
             for (int i = 0; i < word.length(); i++) {
                 fall = 0;
@@ -149,7 +171,7 @@ public class PlayGame implements Initializable {
         hint.setOnAction(e->{
             Random rand = new Random();
             int j=rand.nextInt(word.length());
-            answerHint.setText("Char AT " +j+" is "+word.charAt(j));
+            answerHint.setText("Char AT " +(j+1)+" is "+word.charAt(j));
             Word.get(j).setText(String.valueOf(word.charAt(j)));
             Word.get(j).setDisable(true);
             fall+=0.5;
