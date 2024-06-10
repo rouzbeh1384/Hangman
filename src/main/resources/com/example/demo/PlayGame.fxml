@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -45,20 +46,21 @@
          <font>
             <Font name="Cooper Black" size="17.0" />
          </font></Button>
-      <Button layoutX="56.0" layoutY="71.0" mnemonicParsing="false" style="-fx-background-color: s;" text="Hint" textFill="#f2ff00">
+      <Button layoutX="143.0" layoutY="318.0" mnemonicParsing="false" style="-fx-background-color: s;" text="Hint" textFill="#f2ff00">
          <font>
             <Font name="Cooper Black" size="18.0" />
          </font>
       </Button>
-      <Text fill="#daff00" layoutX="196.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gread : ">
+      <Text fill="#daff00" layoutX="24.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gread : ">
          <font>
             <Font name="Cooper Black" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="scor" layoutX="275.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Label fx:id="score" layoutX="97.0" layoutY="16.0" text="Label" />
+      <Button fx:id="back" layoutX="504.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: c;" text="Back" textFill="#ffe5e5">
          <font>
-            <Font size="18.0" />
+            <Font name="Cooper Black" size="23.0" />
          </font>
-      </Text>
+      </Button>
    </children>
 </AnchorPane>
